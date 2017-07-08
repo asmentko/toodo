@@ -1,3 +1,5 @@
+require: rubocop-rspec
+
 # inherit_from: .rubocop_todo.yml
 
 Rails:
@@ -16,7 +18,25 @@ AllCops:
 
 Metrics/LineLength:
   Max: 130
-      
+
+Metrics/MethodLength:
+  CountComments: false  # count full line comments?
+  Max: 65
+
+RSpec/MultipleExpectations:
+  Max: 6
+
+RSpec/MultipleDescribes:
+  Enabled: false
+
+RSpec/ExampleLength:
+  Exclude:
+    - 'spec/controllers/tasks_controller_spec.rb'
+
+RSpec/InstanceVariable:
+  Exclude:
+    - 'spec/controllers/tasks_controller_spec.rb'
+
 Style/FrozenStringLiteralComment:
   Enabled: false
 
