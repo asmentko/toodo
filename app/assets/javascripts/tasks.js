@@ -33,6 +33,7 @@ $(function() {
 
   $.get("/tasks").success( function( data ) {
     var htmlString = "";
+    
     $.each(data, function(index, task) {
       htmlString += taskHtml(task);
     });    
