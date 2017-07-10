@@ -19,11 +19,11 @@ $(function() {
   // the toggle checkbox and performs an API request to toggle
   // the value of the 'done' field
   function toggleTask(e) {
-    var itemId = $(e.target).data('id');
+    var itemId = $(e.target).data("id");
 
     var doneValue = Boolean($(e.target).is(':checked'));
 
-    $.post('/tasks/' + itemId, {
+    $.post("/tasks/" + itemId, {
       _method: "PUT",
       task: {
         done: doneValue
@@ -31,7 +31,7 @@ $(function() {
     });    
   }
 
-  $.get('/tasks').success( function( data ) {
+  $.get("/tasks").success( function( data ) {
     var htmlString = "";
     $.each(data, function(index, task) {
       htmlString += taskHtml(task);
@@ -51,7 +51,7 @@ $(function() {
         title: textbox.val()
       }
     };
-    $.post('/tasks', payload).success(function(data) {
+    $.post("/tasks", payload).success(function(data) {
       var htmlString = taskHtml(data);
       var ulTodos = $('.todo-list');
       ulTodos.append(htmlString);
